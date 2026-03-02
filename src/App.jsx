@@ -7,9 +7,10 @@ import "./App.css";
 // Import your separate scenepack arrays
 import dilfyscps from "./data/dilfyscps";
 import cvmscps from "./data/cvmscps";
+import dilfymoviescps from "./data/dilfymoviescps";
 
 // Combine all packs
-const allPacks = [...dilfyscps, ...cvmscps];
+const allPacks = [...dilfyscps, ...cvmscps, ...dilfymoviescps];
 
 export default function App() {
   const [filtersOpen, setFiltersOpen] = useState(false);
@@ -77,7 +78,7 @@ export default function App() {
       <section className="search-filter-section">
         <input
           type="text"
-          placeholder="Search packs by title..."
+          placeholder="Search for scenepacks..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="search-input"
@@ -89,7 +90,7 @@ export default function App() {
             className="hamburger-btn"
             onClick={() => setFiltersOpen(!filtersOpen)}
           >
-            ☰ FILTER
+            ☰
           </button>
 
           {filtersOpen && (
