@@ -1,0 +1,65 @@
+/* Card container */
+.scenepack-card {
+  position: relative;
+  display: inline-block;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 1px solid #00f0ff;
+  overflow: hidden;
+  margin: 12px;
+  transition: transform 0.2s;
+  width: 260px;   /* fixed card width */
+  height: auto;   /* allow height to follow image */
+}
+
+.scenepack-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Image keeps aspect ratio, won't stretch */
+.scenepack-card img {
+  display: block;
+  width: 100%;    /* fills card width */
+  height: auto;   /* keeps original aspect ratio */
+  max-height: 500px; /* optional max height */
+  object-fit: cover;  /* crop nicely if needed */
+}
+
+/* Overlay in bottom-right corner */
+.overlay {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0,0,0,0.75);
+  padding: 0.6rem;
+  border-radius: 8px;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s;
+  max-width: 160px;
+  text-align: left;
+}
+
+.scenepack-card:hover .overlay {
+  opacity: 1;
+}
+
+.overlay h3 {
+  margin: 0 0 0.2rem 0;
+  font-size: 1rem;
+  color: #00f0ff;
+}
+
+.overlay p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #fff;
+}
+
+.overlay .last-updated {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.7rem;
+  color: #00ffff;
+  font-style: italic;
+}

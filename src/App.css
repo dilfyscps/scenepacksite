@@ -1,0 +1,288 @@
+/* === Global Styles === */
+body, html, #root, .app-container {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(135deg, #000000, #001f3f); /* Black to dark blue */
+  color: #fff;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* === Hero Section === */
+.hero-section {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.hero-section p {
+  color: #ccc;
+  font-size: 1.1rem;
+}
+
+/* === Search + FILTER === */
+.search-filter-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.search-input {
+  padding: 0.6rem 1rem;
+  width: 300px;
+  max-width: 90%;
+  border-radius: 12px;
+  border: 1px solid #004080;
+  background: #111;
+  color: #fff;
+  font-size: 1rem;
+  box-shadow: 0 0 10px rgba(0, 64, 128, 0.5);
+}
+
+.search-input::placeholder {
+  color: #66b2ff;
+}
+
+.hamburger-btn {
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg,#001f3f,#003366);
+  color: #00cfff;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0,64,128,0.6);
+  transition: all 0.3s;
+}
+
+.hamburger-btn:hover {
+  box-shadow: 0 0 25px rgba(0,128,255,0.9);
+  background: linear-gradient(135deg,#002244,#0055aa);
+}
+
+/* === Overlay panel === */
+.filter-overlay-panel {
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  background: rgba(0,0,0,0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  min-width: 300px;
+  box-shadow: 0 8px 30px rgba(0,64,128,0.7);
+  z-index: 100;
+  opacity: 0;
+  animation: slideFadeIn 0.35s forwards;
+}
+
+@keyframes slideFadeIn {
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* === Filter button groups === */
+.filter-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-group label {
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: #00cfff;
+}
+
+.filter-buttons-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 0.8rem;
+  border-radius: 12px;
+  border: 1px solid #004080;
+  background: linear-gradient(135deg,#001f3f,#003366);
+  color: #00cfff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  flex: 1;
+  text-align: center;
+}
+
+.filter-btn:hover {
+  box-shadow: 0 0 15px rgba(0,200,255,.7);
+}
+
+.filter-btn.active {
+  background: linear-gradient(90deg,#00cfff,#0099ff);
+  color: #000;
+  box-shadow: 0 0 20px rgba(0,200,255,.9);
+  border-color: #00cfff;
+}
+
+/* === Apply / Clear Buttons === */
+.filter-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.apply-btn, .clear-btn {
+  flex: 1;
+  padding: 0.6rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+}
+
+.apply-btn {
+  background: linear-gradient(90deg,#00cfff,#0099ff);
+  color: #000;
+  box-shadow: 0 4px 15px rgba(0,160,255,.6);
+}
+
+.apply-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,200,255,.9);
+}
+
+.clear-btn {
+  background: linear-gradient(90deg,#002244,#004080);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0,160,255,.6);
+}
+
+.clear-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,200,255,.8);
+}
+
+/* Overlay background */
+.overlay-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+}
+
+/* Packs Grid */
+.featured-packs {
+  padding: 5rem;
+  display: flex;
+  justify-content: center; /* centers the grid */
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.packs-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0rem;
+}
+
+/* === Modal === */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+}
+
+.modal-overlay.fade-out {
+  animation: fadeOut 0.3s forwards;
+}
+
+.modal-content {
+  background: #111;
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 450px;
+  width: 90%;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 0 30px rgba(0,160,255,.6);
+  transform: scale(0.95);
+  animation: scaleIn 0.3s forwards;
+}
+
+.modal-content img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 15px rgba(0,160,255,.4);
+}
+
+.download-btn {
+  display: inline-block;
+  margin: 1rem 0;
+  padding: 0.7rem 1.5rem;
+  background: linear-gradient(90deg,#00cfff,#0099ff);
+  color: #000;
+  border-radius: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(0,160,255,.5);
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,200,255,.8);
+}
+
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  color: #ccc;
+}
+
+/* === Animations === */
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes fadeOut { to { opacity: 0; } }
+@keyframes scaleIn { from { transform: scale(0.95); opacity:0; } to { transform: scale(1); opacity:1; } }
+
+@media(max-width:768px){
+  .packs-grid{ grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); }
+  .modal-content{ padding:1rem; }
+}
