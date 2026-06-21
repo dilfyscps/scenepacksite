@@ -1,0 +1,10 @@
+name = "scenepacks-stats"
+main = "src/index.js"
+compatibility_date = "2024-08-01"
+
+[[kv_namespaces]]
+binding = "DOWNLOADS"
+id = "1fd4291f8fb446a3b107e8be8537c324"
+
+[vars]
+ALLOWED_ORIGIN = "*"

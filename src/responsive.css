@@ -1,0 +1,379 @@
+/* Shared responsive layout fixes */
+
+.app-container {
+  width: 100%;
+  overflow-x: clip;
+}
+
+/* Hero */
+
+.hero-section {
+  padding: clamp(2.5rem, 8vw, 5rem) var(--page-padding) clamp(1.5rem, 4vw, 3.5rem);
+}
+
+.hero-section p {
+  font-size: clamp(0.9375rem, 2.5vw, 1.125rem);
+}
+
+.hero-stats {
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+  gap: clamp(0.75rem, 3vw, 1.5rem);
+  padding: clamp(0.75rem, 3vw, 1rem) clamp(1rem, 4vw, 1.75rem);
+}
+
+.hero-stat-value {
+  font-size: clamp(1.25rem, 4vw, 1.625rem);
+}
+
+/* Category tiles */
+
+.category-tiles {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(0.5rem, 2vw, 0.75rem);
+}
+
+/* Page hero */
+
+.page-hero {
+  padding: clamp(2rem, 7vw, 4.5rem) var(--page-padding) clamp(1.5rem, 4vw, 2.75rem);
+}
+
+.page-hero h1 {
+  font-size: clamp(1.75rem, 6vw, 3.25rem);
+}
+
+.page-hero-subtitle {
+  font-size: clamp(0.9375rem, 2.5vw, 1.0625rem);
+  padding: 0 0.25rem;
+}
+
+/* Grids */
+
+.packs-grid {
+  grid-template-columns: repeat(auto-fill, minmax(var(--grid-min-card), 1fr));
+  gap: clamp(0.75rem, 2.5vw, 1.25rem);
+}
+
+.featured-section {
+  margin-bottom: var(--section-gap);
+}
+
+.featured-section-header {
+  gap: clamp(0.75rem, 2vw, 1rem);
+}
+
+/* Trending marquee — full bleed */
+
+.trending-marquee-section {
+  width: 100%;
+  margin-bottom: var(--section-gap);
+  padding: 0 0 0.5rem;
+}
+
+.trending-marquee-header {
+  padding: 0 var(--page-padding);
+  margin-bottom: clamp(1rem, 3vw, 1.75rem);
+}
+
+.trending-marquee-wrap {
+  width: 100%;
+}
+
+.trending-marquee-item {
+  flex: 0 0 clamp(9.5rem, 42vw, 15rem);
+  width: clamp(9.5rem, 42vw, 15rem);
+}
+
+.trending-marquee-track,
+.trending-marquee-static {
+  gap: clamp(0.75rem, 2.5vw, 1.25rem);
+}
+
+/* Toolbar & browse */
+
+.pack-toolbar,
+.featured-packs,
+.updates-feed-section,
+.pack-page,
+.guide-page {
+  padding-left: var(--page-padding);
+  padding-right: var(--page-padding);
+}
+
+/* Pack detail */
+
+.pack-page-layout {
+  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.pack-page-details {
+  min-width: 0;
+}
+
+.pack-page-desc {
+  font-size: clamp(0.9375rem, 2.5vw, 1rem);
+}
+
+.pack-page-download {
+  width: 100%;
+  max-width: 320px;
+}
+
+.related-packs .packs-grid {
+  grid-template-columns: repeat(auto-fill, minmax(var(--grid-min-card), 1fr));
+}
+
+/* Updates feed */
+
+.updates-feed-section {
+  padding-bottom: 4rem;
+}
+
+.update-item-body h2 {
+  font-size: clamp(1rem, 3vw, 1.125rem);
+}
+
+/* Guide */
+
+.guide-steps,
+.guide-faq,
+.guide-cta {
+  padding-left: var(--page-padding);
+  padding-right: var(--page-padding);
+}
+
+.guide-cta {
+  margin-left: var(--page-padding);
+  margin-right: var(--page-padding);
+}
+
+/* Footer */
+
+.footer {
+  padding: clamp(2rem, 5vw, 3.5rem) var(--page-padding) 2rem;
+}
+
+/* Cards on touch devices */
+
+@media (hover: none) {
+  .scenepack-card:hover {
+    transform: none;
+  }
+}
+
+/* Tablet */
+
+@media (max-width: 1024px) {
+  .category-tiles {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .pack-page-layout {
+    grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .category-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .hero-mosaic {
+    display: none;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-cta {
+    justify-content: center;
+  }
+
+  .category-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .featured-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .view-all-link {
+    white-space: normal;
+  }
+
+  .pack-page-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .pack-page-poster {
+    max-width: min(280px, 100%);
+    margin: 0 auto;
+  }
+
+  .pack-page-details {
+    text-align: center;
+  }
+
+  .pack-modal-badges,
+  .pack-page-meta {
+    justify-content: center;
+  }
+
+  .pack-page-download {
+    margin: 0 auto;
+  }
+
+  .back-link {
+    margin-bottom: 1.25rem;
+  }
+
+  .guide-step {
+    grid-template-columns: auto 1fr;
+    padding: 1.125rem;
+  }
+
+  .guide-step-icon {
+    display: none;
+  }
+
+  .guide-step-number {
+    grid-row: auto;
+  }
+
+  .update-item {
+    grid-template-columns: auto minmax(64px, 72px) minmax(0, 1fr);
+    gap: 0.875rem;
+    padding: 0.875rem;
+  }
+
+  .update-item-chevron {
+    display: none;
+  }
+
+  .update-item-poster {
+    width: 72px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --grid-min-card: min(100%, 9rem);
+  }
+
+  .category-tiles {
+    grid-template-columns: 1fr;
+  }
+
+  .category-tile {
+    padding: 0.875rem;
+  }
+
+  .hero-stat-divider {
+    display: none;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .trending-marquee-item {
+    flex-basis: clamp(8.5rem, 72vw, 11rem);
+    width: clamp(8.5rem, 72vw, 11rem);
+  }
+
+  .update-item {
+    grid-template-columns: 64px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    align-items: start;
+  }
+
+  .update-item-index {
+    display: none;
+  }
+
+  .update-item-poster {
+    grid-row: span 2;
+    width: 64px;
+  }
+
+  .guide-cta-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .guide-cta-links .hero-cta {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .logo-tagline {
+    display: none;
+  }
+
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trending-marquee-track {
+    display: none;
+  }
+
+  .trending-marquee-static {
+    display: flex;
+    overflow-x: auto;
+    padding: 0.5rem var(--page-padding) 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .trending-marquee-static .trending-marquee-item {
+    scroll-snap-align: start;
+  }
+
+  .trending-marquee-wrap {
+    mask-image: none;
+    overflow: visible;
+  }
+}
+
+.admin-dashboard {
+  padding-left: var(--page-padding);
+  padding-right: var(--page-padding);
+  padding-bottom: 4rem;
+}
+
+.admin-login-card {
+  margin: 0 var(--page-padding);
+}
+
+@media (max-width: 768px) {
+  .pack-page-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .related-packs h2 {
+    text-align: center;
+  }
+}

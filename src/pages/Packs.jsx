@@ -1,34 +1,35 @@
-import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import ScenepackCard from '../components/ScenepackCard';
+import React from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import PageHero from "../components/PageHero";
+import PackBrowser from "../components/PackBrowser";
+import { PackGridSkeleton } from "../components/LoadingSkeleton";
+import { usePacks } from "../context/PacksContext";
+import { usePageTitle } from "../hooks/usePageTitle";
+import { PAGE_META } from "../config/pages";
+import "../App.css";
 
-const scenepacks = [
-  { title: "Pluribus", img: "/images/pluribus.jpg", url: "https://example.com/pluribus" },
-  { title: "A Knight of the Seven Kingdoms", img: "/images/knight.jpg", url: "#" },
-  { title: "The Amazing Spider-Man", img: "/images/spiderman.jpg", url: "#" },
-  { title: "Random Pack 4", img: "/images/pack4.jpg", url: "#" },
-];
+const meta = PAGE_META.packs;
 
-function Packs() {
+export default function Packs() {
+  usePageTitle(meta.title);
+  const { packs, loading } = usePacks();
+
   return (
-    <div style={{ backgroundColor: '#111', minHeight: '100vh', color: 'white' }}>
+    <div className="app-container">
       <Header />
-      <main style={{ padding: '2rem' }}>
-        <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>All Packs</h2>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '2rem'
-        }}>
-          {scenepacks.map((pack, i) => (
-            <ScenepackCard key={i} {...pack} />
-          ))}
-        </div>
-      </main>
+
+      <PageHero
+        label={meta.label}
+        title={meta.heading}
+        highlight={meta.highlight}
+        subtitle={meta.subtitle}
+        meta={loading ? "Loading catalog..." : `${packs.length} packs available`}
+      />
+
+      {loading ? <PackGridSkeleton /> : <PackBrowser packs={packs} />}
+
       <Footer />
     </div>
   );
 }
-
-export default Packs;
